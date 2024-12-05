@@ -36,23 +36,25 @@ pytest tests/
 Tests Breakdown:
 Data Preprocessing Tests: 
 Validate the scaling and transformations applied to the dataset to ensure consistency.
-# Separate features and target variable
+Example:
+Separate features and target variable
 X = drugdata.drop('Drug', axis=1).to_numpy()
 y = drugdata['Drug'].to_numpy()
 
-# Split into training and testing sets
+Split into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, stratify=y, random_state=100
 )
 
-# Standardize features
+ Standardize features
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 Model Training Tests
 Check that the neural network model trains correctly and meets baseline performance metrics.
-# Initialize and train the MLPClassifier
+Example:
+Initialize and train the MLPClassifier
 mlp = MLPClassifier(hidden_layer_sizes=(5, 4, 5), activation='relu', solver='adam', max_iter=10000, random_state=100)
 mlp.fit(X_train_scaled, y_train)
 
@@ -66,26 +68,26 @@ python main.py
 Save the trained model to the models/ directory for reuse. The current implementation handles this step automatically.
 Integrate the trained model into an API, web application, or command-line tool for real-world use.
 
-Contributing
+Contributing:
 We welcome contributions!
 Please read the CONTRIBUTING.md file for our code of conduct and submission process.
 
-Versioning
+Versioning:
 We use SemVer for versioning. For available versions, see the tags on this repository.
 
-Author
+Author:
 Mbonghe Blessing
 GitHub: Blessing-Fobs
 Email: bmbonghe17@gmail.com
 
-License
+License:
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-Acknowledgement
+Acknowledgement:
 This project is made possible by the following:
 Scikit-learn Documentation: For providing extensive guidance on using machine learning models.
 Pandas and NumPy Teams: For their invaluable data manipulation and numerical computing tools.
 Matplotlib: For enabling easy visualization of model outputs.
 Machine Learning Communities: For sharing insights, tutorials, and best practices.
 
-I
+
